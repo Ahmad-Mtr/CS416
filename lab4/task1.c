@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -5,7 +6,7 @@
 
 
 int main(){
-
+  
   printf("Process A\n");
   pid_t pid1;
   // Fork Part
@@ -23,13 +24,13 @@ int main(){
       exit(1);
     }else{
       // B
-      wait(NULL);
-      execl("/bin/mkdir", "mkdir", "C/B", NULL);
+      wait(null);
+      execl("/bin/mkdir", "mkdir", "B", NULL);
       exit(1);
     }
   }
   // Folder Part
-  wait(NULL);
-  execl("/bin/mkdir", "mkdir", "C/B/A", NULL);
+  wait(null);
+  execl("/bin/mkdir", "mkdir", "A", NULL);
   return 0;
 }
