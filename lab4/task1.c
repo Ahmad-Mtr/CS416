@@ -1,10 +1,10 @@
-
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <stdlib.h>
-
-
+// TASK: Create 3 Folders inside each others, C in it, B, init, A. 
+/* C->B->A */
+// NOTE: The output Directories should be as <C> & its children.
 int main(){
   
   printf("Process A\n");
