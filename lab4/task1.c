@@ -2,11 +2,11 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <stdlib.h>
-// TASK: Create 3 Folders inside each others, C in it, B, init, A. 
+// TASK: Create 3 Folders inside each other, C in it, B, init, A. 
 /* C->B->A */
 // NOTE: The output Directories should be as <C> & its children.
 int main(){
-  
+
   printf("Process A\n");
   pid_t pid1;
   // Fork Part
@@ -24,13 +24,13 @@ int main(){
       exit(1);
     }else{
       // B
-      wait(null);
-      execl("/bin/mkdir", "mkdir", "B", NULL);
+      wait(NULL);
+      execl("/bin/mkdir", "mkdir", "C/B", NULL);
       exit(1);
     }
   }
   // Folder Part
-  wait(null);
-  execl("/bin/mkdir", "mkdir", "A", NULL);
+  wait(NULL);
+  execl("/bin/mkdir", "mkdir", "C/B/A", NULL);
   return 0;
 }
