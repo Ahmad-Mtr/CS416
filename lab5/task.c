@@ -17,21 +17,22 @@ int main() {
   if (pid < 0) {
     // Error
   } else if (pid == 0) {
-    f1 = open("Name.txt", O_RDWR | O_CREAT,
-              0644); // open or create the first file
+    f1 = open("Name.txt", O_RDWR | O_CREAT, 0644); // open or create the first file
     if (f1 == -1) {
       printf("Error opening or creating file1");
       exit(1);
     }
-    numByteWritten = write(f1, course, strlen(course));
+    write(f1, course, strlen(course));
     close(f1);
 
   } else {
     // Parent
     wait(NULL);
-    f2 = open("Name.txt", O_APPEND | O_RDWR,
-              0644); // open or create the first file
-
+    f2 = open("Name.txt", O_APPEND | O_RDWR, 0644); // open or create the first file
+    if( f2 == -1){
+      printf("Error Opening or creating file2");
+      exit(1);
+    }
     write(f2, name, strlen(name));
   }
     close(f2);
