@@ -13,27 +13,27 @@
 #include <stdlib.h>
 
 #define Buff_size 20
-char  buff[Buff_size];
+char buff[Buff_size];
 int countWords(int fd) {
-    
-    int c = 0;
-    ssize_t n;
-    lseek(fd, 0, SEEK_SET);
-    
-    while ((n = read(fd, buff, Buff_size)) > 0) {
-        for (int i = 0; i < (int) n; i++) {
-            if (buff[i] == " ") {
-                c++;
-            }
-        }
+
+  int c = 0;
+  ssize_t n;
+  lseek(fd, 0, SEEK_SET);
+
+  while ((n = read(fd, buff, Buff_size)) > 0) {
+    for (int i = 0; i < (int)n; i++) {
+      if (buff[i] == " ") {
+        c++;
+      }
     }
-	printf("n: %d\n", n);
-    if (n < 0) {
-        printf("Error reading file");
-        exit(1);
-    }
-	printf("BATATATATAA: %d\n", c);
-    return c;
+  }
+  printf("n: %d\n", n);
+  if (n < 0) {
+    printf("Error reading file");
+    exit(1);
+  }
+  printf("BATATATATAA: %d\n", c);
+  return c;
 }
 
 int isEmpty(int fd) {
@@ -57,9 +57,8 @@ int main() {
     exit(1);
   }
   int len = isEmpty(fd);
-  
-    countWords(fd);
-  
+
+  countWords(fd);
 
   close(fd);
   return 0;
