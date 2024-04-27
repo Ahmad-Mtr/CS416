@@ -1,16 +1,24 @@
-#include <stdio.h>
-
-#include <sys/types.h>
-
+/*
+Given the file file1.txt, write a C program that accomplishes the following
+tasks:
+  - Open the file file1.txt.
+  - Make a function that check whether the file is Empty or not. If the file is
+Empty, print a message “The File was Empty Before accessing” in terminal and in
+the file then close the file. If the file is not empty print the size in bytes
+in the terminal.
+  - Make a function to count number of words [by searching for spaces and count
+them +1]. But read the file as chunks. Then print the number of words in
+terminal.
+  - Extra: Make a function that search for the word computer (with any capital
+or small case) and replace it with the word COMPUTER. And then print on terminal
+number of replaced words.
+*/
 #include <fcntl.h>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
 #include <unistd.h>
-
-#include <stdlib.h>
-
-#include <stdlib.h>
-
-#include <stdlib.h>
 
 #define Buff_size 20
 char buff[Buff_size];
@@ -22,28 +30,26 @@ int countWords(int fd) {
 
   while ((n = read(fd, buff, Buff_size)) > 0) {
     for (int i = 0; i < (int)n; i++) {
-      if (buff[i] == " ") {
+      if (buff[i] == ' ' || buff[i] == '\n' || buff[i] == '\t') {
         c++;
       }
     }
   }
-  printf("n: %d\n", n);
-  if (n < 0) {
-    printf("Error reading file");
-    exit(1);
-  }
-  printf("BATATATATAA: %d\n", c);
-  return c;
+
+  printf("BATATATATAA: %d\n", c + 1);
+  return c + 1;
 }
 
 int isEmpty(int fd) {
-  int len = lseek(fd, 0, SEEK_END);
+  off_t len = lseek(fd, 0, SEEK_END);
   if (len) {
-    printf("The file isn't Empty, Size: %d\n", len);
-    return len;
-  } else {
-    printf("file is Empty\n");
+    printf("file isn't Empty, size: %ld\n", (long)len);
     close(fd);
+    return -1;
+  } else {
+    const char *msg = "The File was Empty Before accessing\n";
+    printf("%s", msg);
+    write(fd, msg, strlen(msg));
     return -1;
   }
 }

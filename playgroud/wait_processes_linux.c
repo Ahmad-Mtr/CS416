@@ -1,10 +1,10 @@
 /*
- * A basic (for Linux) code that demonstrates the use of basic process resources.
+ * A basic code (for Linux) that demonstrates the use of basic process resources.
  * This code creates a child process using fork() and executes another program using execvp().
  * A Basic summary of probably unfamiliar functions:
  *      fprintf(): Prints formatted data to a stream (usually stderr in this case).
  *      execvp(): Executes a file with the given name, replacing the current process image.
- * NOTE: This code won't work on Windows ("fork()" isn't available).
+ * NOTE: This code won't work on Windows (`fork()` isn't available).
  */
 
 #include <stdio.h>

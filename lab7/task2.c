@@ -1,3 +1,12 @@
+/*
+  Task 2:
+  Write a program that do the following:
+  1. Create a file called (MyInfo.txt).
+  2. Write on the file your full name, given that name is dynamic allocated.
+  3. Resize the already allocated memory to hold the full name and your major.
+  4. Rewrite the new information to the file.
+  5. Make sure to free the dynamic allocated, and close open files
+*/
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>

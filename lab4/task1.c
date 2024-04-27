@@ -1,10 +1,19 @@
+// TASK: Create 3 Folders inside each other, C in it, B, init, A. 
+/* C->B->A 
+  .
+  ├── C
+  │   └── B
+  │       └── A
+  ├── task1.c
+*/
+// NOTE: The output Directories should be as <C> & its children.
+//     **I'm lazy to handle all errors or print Processes Data, don't take it seriously and always write better code.**
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <stdlib.h>
-// TASK: Create 3 Folders inside each other, C in it, B, init, A. 
-/* C->B->A */
-// NOTE: The output Directories should be as <C> & its children.
+
 int main(){
 
   printf("Process A\n");
@@ -13,6 +22,7 @@ int main(){
   pid1 = fork();
   if ( pid1 < 0){
     printf("Errorr\n");
+    return 1;
   }else if(pid1 > 0){
     // Parent A
   }else{
