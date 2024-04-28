@@ -1,5 +1,5 @@
 /*
-  For the First time I'm adding prober error handling 💪
+  For the First time I'm adding proper error handling 💪
 */
 #include <fcntl.h>
 #include <stdio.h>
