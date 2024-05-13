@@ -12,7 +12,7 @@ int main() {
   int numOfStudents = 0;
   printf("num: ");
   scanf("%d", &numOfStudents);
-  float *mallocArr = malloc(numOfStudents * sizeof(float));
+  float *mallocArr = (float *) malloc(numOfStudents * sizeof(float));
   int i = 0;
 
   for (i = 0; i < numOfStudents; i++) {

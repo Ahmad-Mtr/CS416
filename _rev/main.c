@@ -1,11 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
-#include <fcntl.h>
-#include <sys/types.h>
+#include <stdlib.h>
 
+int main() {
+    // Create an array to hold the command and its arguments
+    char *args[] = {"git", "status", NULL};
 
-int main(){
-  
-  return 0;
+    // Execute the git status command using execvp
+    if (execvp("git", args) == -1) {
+        perror("execvp failed");
+        exit(EXIT_FAILURE);
+    }
+
+    // This code will only be reached if execvp fails
+    printf("This line will not be executed\n");
+    return 0;
 }
