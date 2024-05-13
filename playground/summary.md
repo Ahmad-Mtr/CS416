@@ -1,4 +1,4 @@
-# Summary of `fork()`, `exec()`, `wait()` pattern
+## Summary of `fork()`, `exec()`, `wait()` pattern
 ## `exec()` family
 The `exec()` family of functions in Unix-like operating systems replaces the current process image with a new process image. Here's a summary of the `exec()` family:
 ```diff
@@ -7,7 +7,22 @@ The `exec()` family of functions in Unix-like operating systems replaces the cur
 - v: Vector, expects an array(vector) of pointers.
 + p: Path, searches for executables within the `PATH` env variable, in other words, search executables in a place that has `ls`, `mkdir`,`gcc`, executables
 
-- Others exist ofc, I think those are enought 4now.
+
+```
+```c
+// Example using execl
+execl("/bin/ls", "ls", "-l", NULL);
+
+// Example using execlp
+execlp("ls", "ls", "-l", NULL);
+
+// Example using execv
+char *args[] = {"/bin/ls", "-l", NULL};
+execv("/bin/ls", args);
+
+// Example using execvp
+char *args[] = {"ls", "-l", NULL};
+execvp("ls", args);
 ```
 1. **`execl()`**:
    - Executes a file with a list of arguments passed as individual function parameters.
