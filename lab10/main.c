@@ -20,24 +20,21 @@ sem_t semaphore;
 
 void *routine(void *args) {
   sem_wait(&semaphore);
-  while(1) { 
-  sleep(1);
-  if (numOfSeats > 0) {
-    numOfSeats--;
-    printf("Machine %d booked a seat. Remaining seats: %d\n", *(int *)args+1,
-           numOfSeats);
-
-    sem_post(&semaphore);
-    
-    free(args);
-  }else{
-    printf("Machine %d tried to book a seat. but no Seats are available\n", *(int *)args+1);
-    sem_post(&semaphore);
-    
-    free(args);
-  } 
-    if (numOfSeats == 0) break;
+  while (1) {
+    sleep(1);
+    if (numOfSeats > 0) {
+      numOfSeats--;
+      printf("Machine %d booked a seat. Remaining seats: %d\n",
+             *(int *)args + 1, numOfSeats);
+    } else {
+      printf("Machine %d tried to book a seat. but no Seats are available\n",
+             *(int *)args + 1);
+    }
+    if (numOfSeats == 0)
+      break;
   }
+  sem_post(&semaphore);
+  free(args);
 }
 
 int main(int argc, char *argv[]) {
