@@ -20,6 +20,7 @@ sem_t semaphore;
 
 void *routine(void *args) {
   sem_wait(&semaphore);
+  while(1) { 
   sleep(1);
   if (numOfSeats > 0) {
     numOfSeats--;
@@ -35,6 +36,8 @@ void *routine(void *args) {
     
     free(args);
   } 
+    if (numOfSeats == 0) break;
+  }
 }
 
 int main(int argc, char *argv[]) {
@@ -42,7 +45,6 @@ int main(int argc, char *argv[]) {
   sem_init(&semaphore, 0, 3);
   int i;
 
-  while(1) { 
   for (i = 0; i < THREAD_NUM; i++) {
     int *a = malloc(sizeof(int));
     *a = i;
@@ -54,8 +56,6 @@ int main(int argc, char *argv[]) {
     if (pthread_join(th[i], NULL) != 0) {
       printf("Failed to join thread");
     }
-  }
-    if (numOfSeats == 0) break;
   }
   sem_destroy(&semaphore);
   return 0;
