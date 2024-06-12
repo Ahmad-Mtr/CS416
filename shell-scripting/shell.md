@@ -1,7 +1,21 @@
 
 
 # Shell Scripting Cheatsheet
-
+## index
+- [Shell Scripting Cheatsheet](#shell-scripting-cheatsheet)
+  - [index](#index)
+  - [Basic Commands](#basic-commands)
+  - [Variables](#variables)
+  - [Control Structures](#control-structures)
+  - [Functions](#functions)
+  - [File Operations](#file-operations)
+  - [Input/Output Redirection](#inputoutput-redirection)
+  - [Permissions](#permissions)
+  - [Special Variables](#special-variables)
+  - [Useful Commands](#useful-commands)
+  - [Creating a Basic Shell Script](#creating-a-basic-shell-script)
+    
+   
 ## Basic Commands
 
 - **echo**: Display text
@@ -35,10 +49,16 @@
     sudo rm -rf directory / # Try this for fun, btw this will delete all files recursively from the ROOT Dir = deleting all system
     ```
 
+- **cat**: Cat File (Print its content to the terminal)
+  ```bash
+  cat filename
+  ```
 - **pwd**: Print working directory
   ```bash
   pwd
   ```
+
+  
 
 ## Variables
 
