@@ -1,2 +1,2 @@
 Number of students enrolled in this section: 7
-Total score of students: 0
+Total score of students: 172

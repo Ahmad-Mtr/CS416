@@ -1,6 +1,5 @@
 Average score of students in each section:
 Section 1: 28.00
-Section 2: 0.00
+Section 2: 23.75
 Section 3: 24.57
-Section 4: 28.00
-Overall average: 20.14
+Overall average: 25.36

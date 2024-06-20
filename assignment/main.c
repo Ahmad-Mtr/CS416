@@ -7,7 +7,7 @@
 
 #define CHUNK_SIZE 1024
 #define BUFFER_SIZE 1024
-#define PROCESS_COUNT 3
+#define PROCESS_COUNT 4
 
 void analayzeSection(char i) {
   // open files
